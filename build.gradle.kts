@@ -27,11 +27,16 @@ buildscript {
 }
 
 dependencies {
-    implementation("javax.validation:validation-api:2.0.1.Final")
     jooqGenerator("org.postgresql:postgresql")
+
+    implementation("javax.validation:validation-api:2.0.1.Final")
+    implementation("org.postgresql:postgresql")
+    implementation("org.jooq:jooq")
+    implementation("org.flywaydb:flyway-core")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.testcontainers:postgresql:1.14.3")
 }
 
 val postgresDbName: String = randomAlphabetic(10)
