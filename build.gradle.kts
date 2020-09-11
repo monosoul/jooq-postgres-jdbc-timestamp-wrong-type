@@ -18,6 +18,7 @@ plugins {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 buildscript {
