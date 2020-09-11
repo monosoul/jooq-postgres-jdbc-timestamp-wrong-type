@@ -88,6 +88,11 @@ tasks {
     withType<Test> {
         useJUnitPlatform()
 
+        reports {
+            junitXml.isEnabled = false
+            html.isEnabled = true
+        }
+
         testLogging {
             events(PASSED, SKIPPED, FAILED)
             exceptionFormat = FULL
