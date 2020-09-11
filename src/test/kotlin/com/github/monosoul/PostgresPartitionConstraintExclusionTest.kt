@@ -3,6 +3,7 @@ package com.github.monosoul
 import com.github.monosoul.extensions.`has only one partition index scan`
 import com.github.monosoul.extensions.`should not contain timestamp passed as string`
 import com.github.monosoul.extensions.andPrintIt
+import com.github.monosoul.extensions.explainAndPrint
 import com.github.monosoul.extensions.offsetDateTime
 import com.github.monosoul.extensions.uuid
 import com.github.monosoul.jooq.tables.PartitionedTable.PARTITIONED_TABLE
@@ -25,7 +26,7 @@ class PostgresPartitionConstraintExclusionTest : TestBase() {
 
     @Test
     internal fun `update query with constraint exclusion should cause only 1 partition index scan`() {
-        val explanation = jooq.explain(
+        val explanation = jooq.explainAndPrint(
                 jooq.update(PARTITIONED_TABLE)
                         .set(PARTITIONED_TABLE.SOME_DATA, randomAlphanumeric(10))
                         .where(
