@@ -39,6 +39,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.testcontainers:postgresql:1.14.3")
     testImplementation("org.apache.commons:commons-lang3")
+    testImplementation("io.strikt:strikt-core:0.22.1")
 }
 
 val postgresDbName: String = randomAlphabetic(10)
