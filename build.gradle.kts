@@ -33,6 +33,7 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("org.jooq:jooq")
     implementation("org.flywaydb:flyway-core")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
