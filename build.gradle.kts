@@ -22,7 +22,7 @@ repositories {
 
 buildscript {
     dependencies {
-        classpath("org.apache.commons:commons-lang3:3.11")
+        classpath("org.apache.commons:commons-lang3")
     }
 }
 
@@ -38,6 +38,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.testcontainers:postgresql:1.14.3")
+    testImplementation("org.apache.commons:commons-lang3")
 }
 
 val postgresDbName: String = randomAlphabetic(10)

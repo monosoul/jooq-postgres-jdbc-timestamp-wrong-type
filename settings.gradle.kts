@@ -24,6 +24,8 @@ gradle.allprojects {
     buildscript {
         configurations.all {
             resolutionStrategy {
+                force("org.apache.commons:commons-lang3:$apacheCommonsLangVersion")
+
                 eachDependency {
                     when (requested.group) {
                         "org.jooq" -> useVersion(jooqVersion)
@@ -36,6 +38,8 @@ gradle.allprojects {
 
     configurations.all {
         resolutionStrategy {
+            force("org.apache.commons:commons-lang3:$apacheCommonsLangVersion")
+
             eachDependency {
                 when (requested.group) {
                     "org.junit.jupiter" -> useVersion(junitVersion)
