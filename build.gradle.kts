@@ -8,6 +8,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
+import org.jooq.meta.jaxb.ForcedType
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -57,6 +58,12 @@ jooq {
                     inputSchema = "public"
                     includes = "partitioned_table"
                     syntheticPrimaryKeys = ".*\\.partitioned_table\\.id"
+                    forcedTypes.add(
+                            ForcedType()
+                                    .withIncludeTypes("TIMESTAMPTZ")
+                                    .withUserType("java.time.OffsetDateTime")
+                                    .withBinding("com.github.monosoul.jooq.OffsetDateTimeBinding")
+                    )
                 }
                 generate.apply {
                     isIndexes = false

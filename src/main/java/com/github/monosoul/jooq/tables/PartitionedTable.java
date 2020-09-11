@@ -4,14 +4,13 @@
 package com.github.monosoul.jooq.tables;
 
 
+import com.github.monosoul.jooq.OffsetDateTimeBinding;
 import com.github.monosoul.jooq.Public;
 import com.github.monosoul.jooq.tables.records.PartitionedTableRecord;
-
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-
 import org.jooq.Field;
 import org.jooq.Name;
 import org.jooq.Schema;
@@ -30,7 +29,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PartitionedTable extends TableImpl<PartitionedTableRecord> {
 
-    private static final long serialVersionUID = -1841914959;
+    private static final long serialVersionUID = 703598509;
 
     /**
      * The reference instance of <code>public.partitioned_table</code>
@@ -53,7 +52,7 @@ public class PartitionedTable extends TableImpl<PartitionedTableRecord> {
     /**
      * The column <code>public.partitioned_table.timestamp</code>.
      */
-    public final TableField<PartitionedTableRecord, OffsetDateTime> TIMESTAMP = createField(DSL.name("timestamp"), org.jooq.impl.SQLDataType.TIMESTAMPWITHTIMEZONE.nullable(false), this, "");
+    public final TableField<PartitionedTableRecord, OffsetDateTime> TIMESTAMP = createField(DSL.name("timestamp"), org.jooq.impl.SQLDataType.TIMESTAMPWITHTIMEZONE.nullable(false), this, "", new OffsetDateTimeBinding());
 
     /**
      * The column <code>public.partitioned_table.some_data</code>.
